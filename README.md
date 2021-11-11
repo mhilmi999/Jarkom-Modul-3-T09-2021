@@ -33,3 +33,6 @@ Sri Puspita Dewi | 05111940000045
 	- [Jawaban](#jawaban-soal-12)
 - [Soal 13](#soal-13)
 	- [Jawaban](#jawaban-soal-13)
+
+## Notes:<br> - Prefix IP: 10.46 <br> - [Soal Shift](https://docs.google.com/document/d/1hwuI5YpxiP-aboS7wGWPbaQeSOQl0HHVHLT3ws2BPUk/edit)
+---
