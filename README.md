@@ -564,7 +564,15 @@ Lakukan restart apache2 nya
 
 ![Foto](./img/no.11/11.8.skype.jpeg)
 
-set di Skype selesai, baru kita test di loguetown. sebelumnya kita mengeset datenya juga melakukan ` export http_proxy="http://10.46.2.3:5000" `  dengan port yang sudah didefinisikan pada saat melakukan konfigurasi Squid.setelah itu test dengan mengetik `lynx google.com`
+set di Skype selesai, kita pergi ke water 7 melakukan block alamat url google.com sehingga kita bisa redirect ke super.franky.
+mengarahkan nameservernya ke EniesLobby, dimana set super.franky berada. melakukan blok dengan bantuan `acl badsites dstdomain google.com`. semua itu dikonfigurasikan pad `etc/squid/squid.conf`, dan melakukan restart squidnya.
+
+![Foto](./img/no.11/11.1.water7.jpeg)
+
+![Foto](./img/no.11/11.2.water7.jpeg)
+
+
+baru kita test di loguetown. sebelumnya kita mengeset datenya juga melakukan ` export http_proxy="http://10.46.2.3:5000" `  dengan port yang sudah didefinisikan pada saat melakukan konfigurasi Squid.setelah itu test dengan mengetik `lynx google.com`
 
 ![Foto](./img/no.11/11.1.louguetown.jpeg)
 
@@ -586,11 +594,43 @@ Saatnya berlayar! Luffy dan Zoro akhirnya memutuskan untuk berlayar untuk mencar
 
 ## Jawaban Soal 12
 ---
-Di awal Kita akan melakukan set di **Water7** dengan melakukan pembatasan bandwith  juga memilihkan misi harta karun yang sesuai dengan luffy dan zoro dengan bantuan `acl downloadluffy urlpath_regex -i` dan `acl downloadzoro urlpath_regex -i`. pada luffy kita memberikan batasan bandwith yang sesuai dengan hitungan yaitu 1250 untuk 10kbps. 
+Di awal Kita akan melakukan set di **Water7** dengan melakukan pembatasan bandwith  juga memilihkan misi harta karun yang sesuai dengan luffy dan zoro dengan bantuan `acl downloadluffy urlpath_regex -i` dan `acl downloadzoro urlpath_regex -i`. pada luffy kita memberikan batasan bandwith yang sesuai dengan hitungan yaitu 1250 untuk 10kbps. Juga kita membuat 2 akses user dengan bantuan `delay_pools 2` dan `delay_class` 
 
 ![Foto](./img/no.12/12.1.water7.jpeg)
 
-malakukan konfigurasi untuk bisa membuat super.franky.ti9.com bisa dikenali oleh google sehingga bisa melakukan redirect
+malakukan konfigurasi untuk bisa membuat super.franky.ti9.com bisa dikenali oleh google sehingga bisa melakukan redirect juga mengatur misi harta karun luffy yaitu gambar (.jpg dan .png) pada `etc/squid/squid.conf`
+
+![Foto](./img/no.12/12.2.water7.jpeg)
+
+![Foto](./img/no.12/12.3.water7.jpeg)
+
+kita juga mengatur acces penolakan download atau kepemilikian harta karun, sehingga harta karun luffy dan zoro tidak salah. `http_access deny downloadzoro luffy`
+
+![Foto](./img/no.12/12.4.water7.jpeg)
+
+melakukan restart squid  ` service squid restart`
+
+![Foto](./img/no.12/12.5.water7.jpeg)
+
+kemudian kita pergi ke skye untuk mengeset. membuat pembaruan .htaccess agar bisa memiliki seluruh file gambar 
+
+![Foto](./img/no.12/12.1.skype.jpeg)
+
+kita melakukan test di Louguetown dengan mengetik `lynx super.franky.ti9.com.`
+tampilan dari luffy
+
+![Foto](./img/no.12/12.1.louguetown.jpeg)
+
+tampilan dari zoro, bila ia mengambil misi luffy. ia akan menerima penolakan
+
+![Foto](./img/no.12/12.2.louguetown.jpeg)
+
+![Foto](./img/no.12/12.3.louguetown.jpeg)
+
+![Foto](./img/no.12/12.4.louguetown.jpeg)
+
+![Foto](./img/no.12/12.5.louguetown.jpeg)
+
 
 
 ## Soal 13
@@ -599,6 +639,14 @@ Sedangkan, Zoro yang sangat bersemangat untuk mencari harta karun, sehingga kece
 
 ## Jawaban Soal 13
 ---
+untuk no.13 ini bisa diatur bersama dengan no.12 pada water7 dimana pada zoro atau `delay_class 2 1` tidak dimasukkan parameters pembatas pada bandwithnya atau bisa dikatakan kecepatannya dikosongkan (none)
 
+![Foto](./img/no.13/13.1.water7.jpeg)
+
+lalu ditestkan pada Louguetown
+
+![Foto](./img/no.13/13.1.louguetown.jpeg)
+
+![Foto](./img/no.13/13.2.louguetown.jpeg)
 
 
