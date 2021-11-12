@@ -303,3 +303,16 @@ Adapun hasil test run pada node `Skypie` sebagai berikut
 
 ---
 
+## Soal 8
+---
+Pada Loguetown, proxy harus bisa diakses dengan nama jualbelikapal.yyy.com dengan port yang digunakan adalah 5000
+
+## Jawaban Soal 8
+---
+
+## Soal 9
+---
+Agar transaksi jual beli lebih aman dan pengguna website ada dua orang, proxy dipasang autentikasi user proxy dengan enkripsi MD5 dengan dua username, yaitu `luffybelikapalti9` dengan password `luffy_ti9` dan `zorobelikapalti9` dengan password `zoro_ti9`
+
+## Jawaban Soal 9
+---
