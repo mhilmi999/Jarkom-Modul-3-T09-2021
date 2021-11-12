@@ -479,6 +479,107 @@ Agar transaksi bisa lebih fokus berjalan, maka dilakukan redirect website agar m
 
 ## Jawaban Soal 11
 ---
+Kita harus membuat konfigurasi web server  `super.franky.ti9.com` di EniesLobby yang digunakan sebagai DNS Server. 
+Pertama kita membuat mengkonfigurasi zone domain franky.ti9.com di `/etc/bind/named.conf.local` lalu membuat direktori bernama kaizoku. kemudian kita mencopy dan memindahkannya ke folder kaizoku.
+
+![Foto](./img/no.11/11.1.enieslobby.jpeg)
+
+Lakukan konfigurasi di folder kaizoku  `/etc/bind/kaizoku/franky.ti9.com`
+
+![Foto](./img/no.11/11.2.enieslobby.jpeg)
+
+Restart dns servernya`service bind9 restart`
+
+![Foto](./img/no.11/11.3.enieslobby.jpeg)
+
+setelah di restart kita melakukan cname  dengan menambahkan www pada folder kaizoku
+
+![Foto](./img/no.11/11.4.enieslobby.jpeg)
+
+Restart kembali  dns servernya `service bind9 restart
+
+![Foto](./img/no.11/11.5.enieslobby.jpeg)
+
+Baru kita membuat subdomain `super.franky.ti9.com` dengan menambahkan super dan menggunakan IP yang sudah pernah dibuat sebelumnya yang mengarahkan ke IP skype yang telah ditentukan. IP Skype `10.46.3.69`. jangan lupa melakukan restart dns servernya.
+
+![Foto](./img/no.11/11.6.enieslobby.jpeg)
+
+Menambahkan `super.franky.ti9.com` di  zone pada `/etc/bind/named.conf.local` juga memberikan nama filenya.
+
+![Foto](./img/no.11/11.7.enieslobby.jpeg)
+
+lalu melakukan copy pada db.localnya untuk dipindahkan ke file super.franky.ti9.com. setelah itu kita mengkonfigurasi db local untuk file super.franky dengan menambahkan www jangan lupa tambahkan IP skype `10.46.3.69`. dan restart kembali dns servernya.
+
+![Foto](./img/no.11/11.8.enieslobby.jpeg)
+
+![Foto](./img/no.11/11.9.enieslobby.jpeg)
+
+selanjutnya kita melakukan penambahan konfigurasi pada zone  `/etc/bind/named.conf.local` 
+
+```
+zone "3.46.10.in-addr.arpa"{
+        type master;
+        file "/etc/bind/kaizoku/3.46.10.in-addr.arpa";
+};
+```
+kemudian kita mencopy file di db local untuk reverse dns
+
+![Foto](./img/no.11/11.10.enieslobby.jpeg)
+
+kita kembali melakukan konfigurasi di db local untk reverse dns dan melakukan restart dns server kembali
+
+![Foto](./img/no.11/11.11.enieslobby.jpeg)
+
+![Foto](./img/no.11/11.12.enieslobby.jpeg)
+
+Dns di EniesLobby sudah di set maka kita selanjutnya akan mengeset di skypenya.
+Pertama kita melakukan `apt-get install apache2nya` setelah melakukan update. lalu install ` apt-get install php` , `apt-get install libapache2-mod-php7.0` , `apt-get install unzip` dan `apt-get install wget`. setelah semuanya di install kita akan melakukan konfigurasi untuk menginisiasi DocumentRoot pada `/var/www/super.franky.ti9.com`
+.
+
+![Foto](./img/no.11/11.1.skype.jpeg)
+
+![Foto](.img/no.11/11.2.skype.jpeg)
+
+![Foto](.img/no.11/11.3.skype.jpeg)
+
+selanjutnya kita mengaktifkan konfigurasu dari franky.ti9.com yang kemudian membuat direktori franky di `/var/www/super.franky.ti9.com` dan melakukan restart apache2 `service apache2 restart`
+
+![Foto](.img/no.11/11.4.skype.jpeg)
+
+setelah restart selesai kita melakukan wget atau mengambil file dari link web yang kita dapatkan dan melakukan proses unzip foldernya.
+
+![Foto](.img/no.11/11.5.skype.jpeg)
+
+lalu hapus file zip sebelumnya, pindahkan ke  `/var/www/super.franky.ti9.com`  dan hapus folder super.franky 
+
+![Foto](.img/no.11/11.6.skype.jpeg)
+
+mengaktifkan directory listingnya 
+
+![Foto](.img/no.11/11.7.skype.jpeg)
+
+![Foto](.img/no.11/11.7.1.skype.jpeg)
+
+Lakukan restart apache2 nya
+
+![Foto](.img/no.11/11.8.skype.jpeg)
+
+set di Skype selesai, baru kita test di loguetown. sebelumnya kita mengeset datenya juga melakukan ` export http_proxy="http://10.46.2.3:5000" `  dengan port yang sudah didefinisikan pada saat melakukan konfigurasi Squid.setelah itu test dengan mengetik `lynx google.com`
+
+![Foto](.img/no.11/11.1.louguetown.jpeg)
+
+![Foto](.img/no.11/11.2.louguetown.jpeg)
+
+Masukan username `luffybelikapalti9` dan password  `luffy_ti9`
+![Foto](.img/no.11/11.3.louguetown.jpeg)
+
+![Foto](.img/no.11/11.4.louguetown.jpeg)
+
+![Foto](.img/no.11/11.5.louguetown.jpeg)
+
+
+
+
 ## Soal 12
 ---
 Saatnya berlayar! Luffy dan Zoro akhirnya memutuskan untuk berlayar untuk mencari harta karun di `super.franky.ti9.com.` Tugas pencarian dibagi menjadi dua misi, Luffy bertugas untuk mendapatkan gambar (.png, .jpg), sedangkan Zoro mendapatkan sisanya. Karena Luffy orangnya sangat teliti untuk mencari harta karun, ketika ia berhasil mendapatkan gambar, ia mendapatkan gambar dan melihatnya dengan kecepatan 10 kbps 
