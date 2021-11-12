@@ -309,6 +309,51 @@ Pada Loguetown, proxy harus bisa diakses dengan nama jualbelikapal.yyy.com denga
 
 ## Jawaban Soal 8
 ---
+Proses dibawah dijalankan pada node `Water7`
+
+Langkah pertama yang harus dilakukan adalah persiapan untuk menginstall squid, dengan command seperti contoh dibawah
+
+![Foto](./img/no8/1.jpg)
+<br>
+
+Untuk langkah selanjutnya adalah kami membackup format konfig squid menggunakan command `mv`
+
+Kemudian dilanjutkan dengan mengkonfigurasikan hasil backupan tersebut sesuai soal, yaitu menambah `http_port 5000` dan menambahkan `visible_hostname jualbelikapal.ti9.com` seperti contoh dibawah
+
+![Foto](./img/no8/2.jpg)
+<br>
+
+Jangan lupa setelah itu, dilakukan squid restart seperti gambar diatas.
+
+Langkah selanjutnya adalah memperbarui konfigurasi `squid.conf` agar proxy dapat diakses via `http` dengan command dibawah
+
+![Foto](./img/no8/4.jpg)
+<br>
+
+Jangan lupa setelah itu, dilakukan squid restart seperti gambar diatas.
+
+Selanjutnya kami akan mengaktifkan hasil konfigurasi tersebut pada node client `Loguetown`
+
+Untuk mengaktifkan proxy yang mengarah ke `Water7` kami menggunakan command `export http_proxy=http://10.46.2.3:5000` seperti pada gambar
+
+![Foto](./img/no8/5.jpg)
+<br>
+
+```txt
+Notes : Untuk pengaktifan proxy tidak dapat dilakukan melalui script.sh, maka harus dijalankan secara manual.  
+```
+
+Ini adalah hasil uji coba pada nomor 8 :
+
+Pertama kami akan melakukan `lynx google.com` seperti pada gambar dibawah
+
+![Foto](./img/no8/6.jpg)
+<br>
+
+Setelah itu akan terlihat hostname yang sudah kami konfigurasikan, seperti pada gambar
+
+![Foto](./img/no8/7.jpg)
+<br>
 
 ## Soal 9
 ---
@@ -316,12 +361,118 @@ Agar transaksi jual beli lebih aman dan pengguna website ada dua orang, proxy di
 
 ## Jawaban Soal 9
 ---
+Proses dibawah dijalankan pada node `Water7`
+
+Langkah pertama adalah menginstall apache2 seperti gambar dibawah 
+
+![Foto](./img/no9/1.jpg)
+<br>
+
+Kemudian dilanjutkan dengan pembuatan username dan password untuk `luffy` dan `zoro` pada file `passwd` seperti pada gambar dibawah
+
+![Foto](./img/no9/2.jpg)
+<br>
+
+```txt
+Notes : Kelompok kami menambahkan command -m untuk memastikan agar defaultnya dalam bentuk MD5 (APR1-MD5)
+```
+
+Selanjutnya adalah perbaharui konfigurasi pada squid.conf untuk menambahkan autentikasi user yang telah dibuat sebelumnya dengan `proxy_auth`, seperti pada gambar dibawah
+
+![Foto](./img/no9/3.jpg)
+<br>
+
+Jangan lupa setelah itu, dilakukan squid restart seperti gambar diatas.
+
+Selanjutnya kami akan melakukan uji coba pada node client `Loguetown`
+
+Pertama untuk username `luffybelikapalti9`
+
+![Foto](./img/no9/4.jpg)
+<br>
+
+Selanjutnya untuk username `zorobelikapalti9`
+
+![Foto](./img/no9/6.jpg)
+<br>
+
+Tiap username nantinya akan meminta password seperti pada gambar dibawah
+
+![Foto](./img/no9/5.jpg)
+<br>
+
+Jika password dan username berhasil dimasukan, maka dapat mengakses page seperti pada gambar dibawah
+
+![Foto](./img/no9/7.jpg)
+<br>
+
+
 ## Soal 10
 ---
 Transaksi jual beli tidak dilakukan setiap hari, oleh karena itu akses internet dibatasi hanya dapat diakses setiap hari Senin-Kamis pukul 07.00-11.00 dan setiap hari Selasa-Jum’at pukul 17.00-03.00 keesokan harinya (sampai Sabtu pukul 03.00)
 
 ## Jawaban Soal 10
 ---
+Proses dibawah dijalankan pada node `Water7`
+
+Pertama-tama kami membuat ACL untuk 3 pembatasan waktu yang diinginkan.
+
+```txt
+senin - kamis : MTWH (07:00 - 11:00)
+selasa - jumat : TWFH (17:00 - 23:59)
+keesokan harinya hingga sabtu : WHFA (00:00 - 03:00)
+```
+
+ACL dibuat pada file `acl.conf` seperti pada gambar dibawah 
+
+![Foto](./img/no10/1.jpg)
+<br>
+
+Selanjutnya dilakukan update pada konfigurasi squid.conf untuk menambahkan pembatasan waktu akses seperti pada gambar dibawah
+
+![Foto](./img/no10/2.jpg)
+<br>
+
+Jangan lupa setelah itu, dilakukan squid restart seperti gambar diatas.
+
+Untuk uji coba soal ini akan dilakukan pada node client `Loguetown`
+
+Pertama-tama kami akan mencoba mengakses diluar jam yang telah ditentunkan
+
+![Foto](./img/no10/3.jpg)
+<br>
+
+Hasilnya akan seperti ini
+
+![Foto](./img/no10/4.jpg)
+<br>
+
+Terdapat tulisan `ERROR` dan `Access Denied.`
+
+Kemudian jika kita mencoba pada kurun waktu pertama :
+
+```txt
+Notes: menggunakan command date --set="" untuk set waktu agar dapat melakukan uji coba
+```
+
+![Foto](./img/no10/5.jpg)
+<br>
+
+Hasilnya akan seperti ini
+
+![Foto](./img/no10/6.jpg)
+<br>
+
+Begitu juga untuk kurun waktu kedua :
+
+![Foto](./img/no10/7.jpg)
+<br>
+
+Hasilnya akan seperti ini
+
+![Foto](./img/no10/6.jpg)
+<br>
+
 ## Soal 11
 ---
 Agar transaksi bisa lebih fokus berjalan, maka dilakukan redirect website agar mudah mengingat website transaksi jual beli kapal. Setiap mengakses google.com, akan diredirect menuju `super.franky.ti9.com` dengan website yang sama pada soal shift modul 2. Web server `super.franky.ti9.com` berada pada node Skypie
