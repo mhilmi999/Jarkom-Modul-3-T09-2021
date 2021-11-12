@@ -538,44 +538,44 @@ Pertama kita melakukan `apt-get install apache2nya` setelah melakukan update. la
 
 ![Foto](./img/no.11/11.1.skype.jpeg)
 
-![Foto](.img/no.11/11.2.skype.jpeg)
+![Foto](./img/no.11/11.2.skype.jpeg)
 
-![Foto](.img/no.11/11.3.skype.jpeg)
+![Foto](./img/no.11/11.3.skype.jpeg)
 
 selanjutnya kita mengaktifkan konfigurasu dari franky.ti9.com yang kemudian membuat direktori franky di `/var/www/super.franky.ti9.com` dan melakukan restart apache2 `service apache2 restart`
 
-![Foto](.img/no.11/11.4.skype.jpeg)
+![Foto](./img/no.11/11.4.skype.jpeg)
 
 setelah restart selesai kita melakukan wget atau mengambil file dari link web yang kita dapatkan dan melakukan proses unzip foldernya.
 
-![Foto](.img/no.11/11.5.skype.jpeg)
+![Foto](./img/no.11/11.5.skype.jpeg)
 
 lalu hapus file zip sebelumnya, pindahkan ke  `/var/www/super.franky.ti9.com`  dan hapus folder super.franky 
 
-![Foto](.img/no.11/11.6.skype.jpeg)
+![Foto](./img/no.11/11.6.skype.jpeg)
 
 mengaktifkan directory listingnya 
 
-![Foto](.img/no.11/11.7.skype.jpeg)
+![Foto](./img/no.11/11.7.skype.jpeg)
 
-![Foto](.img/no.11/11.7.1.skype.jpeg)
+![Foto](./img/no.11/11.7.1.skype.jpeg)
 
 Lakukan restart apache2 nya
 
-![Foto](.img/no.11/11.8.skype.jpeg)
+![Foto](./img/no.11/11.8.skype.jpeg)
 
 set di Skype selesai, baru kita test di loguetown. sebelumnya kita mengeset datenya juga melakukan ` export http_proxy="http://10.46.2.3:5000" `  dengan port yang sudah didefinisikan pada saat melakukan konfigurasi Squid.setelah itu test dengan mengetik `lynx google.com`
 
-![Foto](.img/no.11/11.1.louguetown.jpeg)
+![Foto](./img/no.11/11.1.louguetown.jpeg)
 
-![Foto](.img/no.11/11.2.louguetown.jpeg)
+![Foto](./img/no.11/11.2.louguetown.jpeg)
 
 Masukan username `luffybelikapalti9` dan password  `luffy_ti9`
-![Foto](.img/no.11/11.3.louguetown.jpeg)
+![Foto](./img/no.11/11.3.louguetown.jpeg)
 
-![Foto](.img/no.11/11.4.louguetown.jpeg)
+![Foto](./img/no.11/11.4.louguetown.jpeg)
 
-![Foto](.img/no.11/11.5.louguetown.jpeg)
+![Foto](./img/no.11/11.5.louguetown.jpeg)
 
 
 
