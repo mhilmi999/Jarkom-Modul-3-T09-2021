@@ -542,13 +542,14 @@ Pertama kita melakukan `apt-get install apache2nya` setelah melakukan update. la
 
 ![Foto](./img/no.11/11.3.skype.jpeg)
 
-selanjutnya kita mengaktifkan konfigurasu dari franky.ti9.com yang kemudian membuat direktori franky di `/var/www/super.franky.ti9.com` dan melakukan restart apache2 `service apache2 restart`
+Selanjutnya kita mengaktifkan konfigurasu dari franky.ti9.com yang kemudian membuat direktori franky di `/var/www/super.franky.ti9.com` dan melakukan restart apache2 `service apache2 restart`
 
 ![Foto](./img/no.11/11.4.skype.jpeg)
 
 setelah restart selesai kita melakukan wget atau mengambil file dari link web yang kita dapatkan dan melakukan proses unzip foldernya.
 
 ![Foto](./img/no.11/11.5.skype.jpeg)
+
 
 lalu hapus file zip sebelumnya, pindahkan ke  `/var/www/super.franky.ti9.com`  dan hapus folder super.franky 
 
@@ -598,7 +599,7 @@ Di awal Kita akan melakukan set di **Water7** dengan melakukan pembatasan bandwi
 
 ![Foto](./img/no.12/12.1.water7.jpeg)
 
-malakukan konfigurasi untuk bisa membuat super.franky.ti9.com bisa dikenali oleh google sehingga bisa melakukan redirect juga mengatur misi harta karun luffy yaitu gambar (.jpg dan .png) pada `etc/squid/squid.conf`
+Melakukan konfigurasi untuk bisa membuat super.franky.ti9.com bisa dikenali oleh google sehingga bisa melakukan redirect juga mengatur misi harta karun luffy yaitu gambar (.jpg dan .png) pada `etc/squid/squid.conf`
 
 ![Foto](./img/no.12/12.2.water7.jpeg)
 
@@ -617,11 +618,15 @@ kemudian kita pergi ke skye untuk mengeset. membuat pembaruan .htaccess agar bis
 ![Foto](./img/no.12/12.1.skype.jpeg)
 
 kita melakukan test di Louguetown dengan mengetik `lynx super.franky.ti9.com.`
-tampilan dari luffy
+
+Tampilan dari luffy
+
+
+![Foto](./img/no.12/12.6.louguetown.jpeg)
 
 ![Foto](./img/no.12/12.1.louguetown.jpeg)
 
-tampilan dari zoro, bila ia mengambil misi luffy. ia akan menerima penolakan
+Tampilan dari zoro, bila ia mengambil misi luffy. ia akan menerima penolakan
 
 ![Foto](./img/no.12/12.2.louguetown.jpeg)
 
