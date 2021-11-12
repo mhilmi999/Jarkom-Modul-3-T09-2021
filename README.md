@@ -571,13 +571,13 @@ set di Skype selesai, baru kita test di loguetown. sebelumnya kita mengeset date
 ![Foto](./img/no.11/11.2.louguetown.jpeg)
 
 Masukan username `luffybelikapalti9` dan password  `luffy_ti9`
+
+
 ![Foto](./img/no.11/11.3.louguetown.jpeg)
 
 ![Foto](./img/no.11/11.4.louguetown.jpeg)
 
 ![Foto](./img/no.11/11.5.louguetown.jpeg)
-
-
 
 
 ## Soal 12
@@ -586,6 +586,13 @@ Saatnya berlayar! Luffy dan Zoro akhirnya memutuskan untuk berlayar untuk mencar
 
 ## Jawaban Soal 12
 ---
+Di awal Kita akan melakukan set di **Water7** dengan melakukan pembatasan bandwith  juga memilihkan misi harta karun yang sesuai dengan luffy dan zoro dengan bantuan `acl downloadluffy urlpath_regex -i` dan `acl downloadzoro urlpath_regex -i`. pada luffy kita memberikan batasan bandwith yang sesuai dengan hitungan yaitu 1250 untuk 10kbps. 
+
+![Foto](./img/no.12/12.1.water7.jpeg)
+
+malakukan konfigurasi untuk bisa membuat super.franky.ti9.com bisa dikenali oleh google sehingga bisa melakukan redirect
+
+
 ## Soal 13
 ---
 Sedangkan, Zoro yang sangat bersemangat untuk mencari harta karun, sehingga kecepatan kapal Zoro tidak dibatasi ketika sudah mendapatkan harta yang diinginkannya
